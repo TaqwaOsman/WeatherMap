@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WeatherMap — Smart Weather Explorer</title>
+<meta name="description" content="Search any place, see it on a live map, and read its current weather.">
+<link rel="icon" href="assets/icons/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-sky="clear">
+<header class="top">
+  <a class="brand" href="#top" id="top">
+    <img src="assets/icons/logo.svg" width="40" height="40" alt="">
+    <span><h1>WeatherMap</h1><small>Live weather on a live map</small></span>
+  </a>
+  <nav class="nav" aria-label="Main">
+    <a class="btn ghost" href="#saved">★ Favorites</a>
+    <div class="seg" role="group" aria-label="Temperature unit">
+      <button type="button" id="unitC" aria-pressed="true">°C</button>
+      <button type="button" id="unitF" aria-pressed="false">°F</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="heroTitle">
+    <h2 id="heroTitle">Explore the weather around you</h2>
+    <p>Type a city, address or landmark. We find it on the map and read the current conditions there.</p>
+    <form id="searchForm" class="search" novalidate>
+      <label class="sr-only" for="q">Location</label>
+      <div class="field"><span class="pin" aria-hidden="true">📍</span>
+        <input id="q" name="q" type="search" placeholder="e.g. Port Sudan" autocomplete="off" maxlength="120"></div>
+      <button type="submit" id="goBtn" class="btn primary"><span class="spin" aria-hidden="true"></span><span id="goLabel">Get Weather</span></button>
+      <button type="button" id="locBtn" class="btn ghost">◎ Use my location</button>
+    </form>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+    <div id="alert" class="alert" role="alert" hidden></div>
+  </section>
+
+  <div class="layout">
+    <section id="overview" class="card glass" aria-labelledby="place" hidden>
+      <div class="ov-head">
+        <div><h2 id="place"></h2><p id="localtime" class="mute"></p></div>
+        <button type="button" id="favBtn" class="btn ghost" aria-pressed="false">☆ Save</button>
+      </div>
+      <div class="ov-main">
+        <img id="icon" width="100" height="100" alt="">
+        <div><p id="temp" class="temp"></p><p id="desc" class="desc"></p><p id="hilo" class="mute"></p></div>
+      </div>
+      <p id="summary" class="summary"></p>
+      <p class="note">Values above come live from OpenWeatherMap. The sentence above is a plain-language reading derived by this app.</p>
+      <div id="details" class="details"></div>
+    </section>
+    <p id="empty" class="card empty">Search for a place to see its live conditions here.</p>
+
+    <section class="mapwrap" aria-label="Map">
+      <div id="map" role="application" aria-label="Interactive map"></div>
+    </section>
+  </div>
+
+  <section id="saved" class="card" aria-labelledby="savedTitle">
+    <h2 id="savedTitle">Favorites</h2>
+    <div id="favs" class="chips"></div>
+    <h2>Recent searches</h2>
+    <div id="recents" class="chips"></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p><strong>WeatherMap</strong> — course project, Advanced Web Technologies.</p>
+  <p>Weather data by <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeatherMap</a>. Map © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors. Geocoding by Nominatim.</p>
+</footer>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/config.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/api.js"></script>
+<script src="js/map.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
