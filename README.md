@@ -1,5 +1,5 @@
 # WeatherMap — Smart Weather Explorer
-Advanced Web Technologies, Course Project 2. A pure front-end SPA: search a place, see it on a Leaflet/OpenStreetMap map, and read live weather from OpenWeatherMap. Live demo: _add your GitHub Pages URL_.
+Advanced Web Technologies, Course Project 2. A pure front-end SPA: search a place, see it on a Leaflet/OpenStreetMap map, and read live weather from OpenWeatherMap. Live demo:    Live demo: https://taqwaosman.github.io/WeatherMap/.
 
 ## Features
 Nominatim geocoding → OpenWeatherMap current weather (sequential async/await with try/catch/finally) · animated map + custom marker + popup with Share button · °C/°F toggle · favorites and recent searches (localStorage) · browser geolocation · Web Share API with clipboard fallback · sky-based theme (clear, clouds, rain, snow, night) · loading, error and empty states · 70vh map on desktop · reduced-motion support.
